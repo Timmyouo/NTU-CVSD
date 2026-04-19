@@ -1,88 +1,93 @@
-# HW3 — 2D Convolution Accelerator
+# HW3 — 2D Convolution Accelerator (RTL → Synthesis)
 
-## Overview
+A two-stage image processing accelerator: **barcode region detection** followed by **2D convolution** producing four parallel output streams. The first project taken through **logic synthesis** with full SDC constraints and timing/area sign-off on a TSMC 0.13 µm library.
 
-A hardware accelerator that performs barcode detection followed by 2D convolution on grayscale images. The design streams an input image into on-chip SRAM, detects a barcode region, reads convolution weights from a second memory region, and writes four convolved output feature maps back to SRAM — all under a single top-level controller.
+## What This Demonstrates
+
+- **Hierarchical RTL** — top-level controller (`core.sv`) orchestrates two specialized engines (`Barcode.sv`, `ConvCore.sv`) sharing a single SRAM
+- **SRAM integration** — instantiates a `4096 × 8` single-port SRAM macro with `.lib`/`.db` from the foundry; netlist arbitration between image-load, barcode-detect, weight-load and convolution phases
+- **Streaming datapath** — convolution kernel sliding window with on-the-fly address generation, four concurrent 8-bit output channels with valid handshakes
+- **Synthesis-ready RTL** — explicit reset, no inferred latches, lint-clean (SpyGlass)
+- **First exposure to the synthesis flow** — writing `syn.tcl`, defining `core_dc.sdc`, reading reports, iterating on timing
 
 ## Architecture
 
 ```
-                      ┌───────────────────────────────────────────────┐
-    i_in_data ──────► │                   core.sv                     │
-    i_in_valid        │                                               │
-                      │  ┌──────────────┐    ┌─────────────────────┐ │
-                      │  │  Barcode.sv  │    │    ConvCore.sv      │ │
-                      │  │  (detect     │    │  (5×5 / 3×3 kernel  │ │
-                      │  │   barcode    │    │   sliding window)   │ │
-                      │  │   location)  │    └────────┬────────────┘ │
-                      │  └──────────────┘             │              │
-                      │                               ▼              │
-                      │        sram_4096x8 (image + weight SRAM)     │
-                      │                                               │
-                      │  o_out_data{1-4}, o_out_addr{1-4},           │
-                      │  o_out_valid{1-4}, o_exe_finish              │
-                      └───────────────────────────────────────────────┘
+                       ┌───────────────────────────────────────────────────┐
+   i_in_data[31:0] ──▶ │                       core                        │
+   i_in_valid     ──▶ │                                                   │
+                      │  FSM: IDLE → READ_IMG → BARCODE → READ_WEIGHT     │
+                      │            → CONV → DONE                          │
+                      │                                                    │
+                      │  ┌──────────┐    ┌──────────┐    ┌───────────────┐│
+                      │  │ Image    │    │ Barcode  │    │ ConvCore       ││
+                      │  │ Loader   │───▶│ Detector │───▶│  ─ kernel ROM  ││
+                      │  │          │    │  (start, │    │  ─ window MAC  ││
+                      │  └──────────┘    │   end pt)│    │  ─ output gen  ││
+                      │       │          └──────────┘    └────────┬───────┘│
+                      │       ▼                                   │        │
+                      │  ┌──────────────────────────────────────┐ │        │
+                      │  │      sram_4096x8 (image + weight)    │◀┘        │
+                      │  └──────────────────────────────────────┘          │
+                      │                                                    │
+                      │  4× {o_out_data, o_out_addr, o_out_valid}, o_exe_finish │
+                      └───────────────────────────────────────────────────┘
 ```
 
-**FSM states:** `IDLE → READ_IMG → BARCODE → READ_WEIGHT → CONV → DONE`
+## Synthesis Results
 
-## Interface
+**Synopsys Design Compiler U-2022.12 · TSMC 0.13 µm slow corner**
 
-```
-module core (
-    input        i_clk, i_rst_n,
-    input        i_in_valid,
-    input [31:0] i_in_data,
-    output       o_in_ready,
-    output [7:0] o_out_data1 / 2 / 3 / 4,
-    output [11:0] o_out_addr1 / 2 / 3 / 4,
-    output       o_out_valid1 / 2 / 3 / 4,
-    output       o_exe_finish
-);
-```
+| Constraint | Value |
+|------------|-------|
+| Clock period | **6.0 ns** (`create_clock -period 6 [get_ports i_clk]`) |
+| Input/output delay | 50% of clock period |
+| Wire load model | `tsmc13_wl10` |
 
-## Synthesis Results (Synopsys DC, TSMC 0.13 µm, slow corner)
+| Area Breakdown | µm² |
+|---------------|-----|
+| Combinational cells | 34,591 |
+| Buf/Inv | 1,168 |
+| Sequential cells | 11,810 |
+| Macro (SRAM) | 131,907 |
+| **Total cell area** | **178,309** |
 
-| Metric | Value |
-|--------|-------|
-| Target clock period | 6 ns |
-| Combinational cell area | 34,591 µm² |
-| Sequential cell area | 11,810 µm² |
-| SRAM (macro) area | 131,907 µm² |
-| **Total cell area** | **178,308 µm²** |
-| Timing | Met (slack ≥ 0) |
+| Cell Stats | Count |
+|-----------|-------|
+| Total cells | 2,972 |
+| Combinational | 2,570 |
+| Sequential | 343 |
+| Macros | 1 (SRAM 4096×8) |
+| Buf/Inv | 285 |
 
-SRAM used: `sram_4096x8` (4096 × 8-bit, single-port)
+Timing closed at the target clock period (positive slack on critical path: weight register → ConvCore output register).
 
-## Flow Completed
+## Verification
 
-| Stage | Status | Script |
-|-------|--------|--------|
-| RTL   | ✅ | `01_RTL/rtl_01.f` |
-| Lint  | ✅ | `01_RTL/lint.tcl`; violations report: `spyglass_violations.rpt` |
-| Sim   | ✅ | VCS + Verdi; `01_RTL/01_run` |
-| **Synthesis** | ✅ | `02_SYN/syn.tcl`, SDC: `core_dc.sdc` |
-| Gate sim | ✅ | `03_GATE/` |
+| Stage | Tool | Status |
+|-------|------|--------|
+| RTL lint | SpyGlass | Clean (`01_RTL/spyglass_violations.rpt`) |
+| RTL functional sim | Synopsys VCS + Verdi | All 5 image patterns pass |
+| Synthesis | Synopsys DC | Timing and area met |
+| Gate-level sim | VCS + back-annotated SDF | Functional equivalence verified |
 
 ## Directory Layout
 
 ```
 HW3_Convolution_Engine/
-├── 00_TESTBED/
-│   ├── testbench.v
-│   └── PATTERNS/          ← input images + golden outputs (.dat, .png)
 ├── 01_RTL/
-│   ├── core.sv            ← top-level controller
-│   ├── ConvCore.sv        ← convolution engine
-│   ├── Barcode.sv         ← barcode detector
-│   ├── rtl_01.f
+│   ├── core.sv             ← top-level controller
+│   ├── ConvCore.sv         ← convolution engine
+│   ├── Barcode.sv          ← barcode detector
+│   ├── lint.tcl            ← SpyGlass lint script
 │   └── spyglass_violations.rpt
 ├── 02_SYN/
-│   ├── syn.tcl            ← Synopsys DC synthesis script
-│   ├── core_dc.sdc        ← timing constraints
-│   ├── Netlist/           ← synthesized gate-level netlist
-│   └── Report/            ← area & timing reports
-├── 03_GATE/               ← gate-level simulation
-├── sram_4096x8/           ← SRAM model (.v, .lib, .db)
-└── 1141_hw3_*.pdf         ← assignment specification
+│   ├── syn.tcl             ← Synopsys DC synthesis script
+│   ├── core_dc.sdc         ← timing constraints
+│   ├── Netlist/            ← gate-level netlist + SDF
+│   └── Report/             ← area, timing, design check reports
+├── 03_GATE/                ← gate-level simulation
+├── sram_256x8/  sram_512x8/  sram_4096x8/   ← SRAM .v / .lib / .db / datasheet
+├── report.txt              ← summary of clock period, area, sim time
+└── 1141_hw3_v4.pdf         ← assignment specification
 ```
