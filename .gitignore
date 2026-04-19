@@ -1,0 +1,54 @@
+# ============================================================
+# CVSD Course — EDA Tool Output Exclusions
+# ============================================================
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# ── VCS / Verdi simulation outputs ──────────────────────────
+simv
+simv.daidir/
+csrc/
+*.fsdb
+*.vpd
+*.vcd
+ucli.key
+novas.rc
+novas.conf
+novas_dump.log
+nWaveLog/
+*.log
+dashboard.log
+datasheet.log
+gui_command.log
+html.log
+signal.rc
+
+# ── SpyGlass lint databases ──────────────────────────────────
+# (keep spyglass_violations.rpt which is at 01_RTL/ root)
+spyglass-1/
+
+# ── Synopsys DC compiled library cache ──────────────────────
+alib-52/
+*.db
+
+# ── Innovus APR stage databases (multi-GB) ──────────────────
+DBS/
+mp_data/
+innovus.log
+innovus.logv
+
+# ── Compressed timing reports ───────────────────────────────
+# Entire Innovus timing report trees (mostly .gz archives)
+**/timingReports/
+
+# ── Large binary / layout files ─────────────────────────────
+*.gds
+
+# ── Simulation pattern / vector folders (can be very large) ─
+**/PATTERN/
+**/PATTERNS/
+**/pattern/
+**/pattern1_data/
+**/pattern2_data/

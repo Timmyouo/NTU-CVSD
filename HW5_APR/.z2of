@@ -1,0 +1,14 @@
+img_mem, R0, R180, MX, MY, R90, R270, MX90, MY90
+img_mem
+	Macro2Core 0
+	UserSpacingL 0
+	UserSpacingB 4753
+	UserSpacingR 0
+	UserSpacingT 0
+img_mem, R0, R180, MX, MY, R90, R270, MX90, MY90
+img_mem
+	Macro2Core 0
+	UserSpacingL 0
+	UserSpacingB 4753
+	UserSpacingR 0
+	UserSpacingT 0

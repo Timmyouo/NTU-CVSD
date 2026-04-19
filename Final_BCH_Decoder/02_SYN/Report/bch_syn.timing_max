@@ -1,0 +1,229 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'bch' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 5
+Design : bch
+Version: U-2022.12
+Date   : Mon Dec 15 21:26:29 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: rstn (input port clocked by clk)
+  Endpoint: controller_0/clk_gate_LLR_reg[36]_14/latch
+            (gating element for clock clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  bch                tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    3.25       3.25 r
+  rstn (in)                                               0.03       3.28 r
+  U1/Y (BUFX20)                                           0.28       3.55 r
+  controller_0/rstn (controller)                          0.00       3.55 r
+  controller_0/U951/Y (BUFX12)                            0.30       3.85 r
+  controller_0/U55/Y (NAND2X6)                            0.30       4.16 f
+  controller_0/U23/Y (CLKBUFX3)                           0.77       4.92 f
+  controller_0/U5609/Y (CLKBUFX3)                         0.96       5.89 f
+  controller_0/clk_gate_LLR_reg[36]_14/EN (SNPS_CLOCK_GATE_HIGH_controller_1470)
+                                                          0.00       5.89 f
+  controller_0/clk_gate_LLR_reg[36]_14/latch/E (TLATNTSCAX2)
+                                                          0.00       5.89 f
+  data arrival time                                                  5.89
+
+  clock clk (rise edge)                                   6.50       6.50
+  clock network delay (ideal)                             0.00       6.50
+  clock uncertainty                                      -0.10       6.40
+  controller_0/clk_gate_LLR_reg[36]_14/latch/CK (TLATNTSCAX2)
+                                                          0.00       6.40 r
+  clock gating setup time                                -0.51       5.89
+  data required time                                                 5.89
+  --------------------------------------------------------------------------
+  data required time                                                 5.89
+  data arrival time                                                 -5.89
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+  Startpoint: rstn (input port clocked by clk)
+  Endpoint: controller_0/clk_gate_LLR_reg[37]/latch
+            (gating element for clock clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  bch                tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    3.25       3.25 r
+  rstn (in)                                               0.03       3.28 r
+  U1/Y (BUFX20)                                           0.28       3.55 r
+  controller_0/rstn (controller)                          0.00       3.55 r
+  controller_0/U951/Y (BUFX12)                            0.30       3.85 r
+  controller_0/U55/Y (NAND2X6)                            0.30       4.16 f
+  controller_0/U23/Y (CLKBUFX3)                           0.77       4.92 f
+  controller_0/U5608/Y (CLKBUFX3)                         0.96       5.89 f
+  controller_0/clk_gate_LLR_reg[37]/EN (SNPS_CLOCK_GATE_HIGH_controller_1469)
+                                                          0.00       5.89 f
+  controller_0/clk_gate_LLR_reg[37]/latch/E (TLATNTSCAX2)
+                                                          0.00       5.89 f
+  data arrival time                                                  5.89
+
+  clock clk (rise edge)                                   6.50       6.50
+  clock network delay (ideal)                             0.00       6.50
+  clock uncertainty                                      -0.10       6.40
+  controller_0/clk_gate_LLR_reg[37]/latch/CK (TLATNTSCAX2)
+                                                          0.00       6.40 r
+  clock gating setup time                                -0.51       5.89
+  data required time                                                 5.89
+  --------------------------------------------------------------------------
+  data required time                                                 5.89
+  data arrival time                                                 -5.89
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+  Startpoint: rstn (input port clocked by clk)
+  Endpoint: controller_0/clk_gate_LLR_reg[37]_0/latch
+            (gating element for clock clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  bch                tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    3.25       3.25 r
+  rstn (in)                                               0.03       3.28 r
+  U1/Y (BUFX20)                                           0.28       3.55 r
+  controller_0/rstn (controller)                          0.00       3.55 r
+  controller_0/U951/Y (BUFX12)                            0.30       3.85 r
+  controller_0/U55/Y (NAND2X6)                            0.30       4.16 f
+  controller_0/U23/Y (CLKBUFX3)                           0.77       4.92 f
+  controller_0/U5607/Y (CLKBUFX3)                         0.96       5.89 f
+  controller_0/clk_gate_LLR_reg[37]_0/EN (SNPS_CLOCK_GATE_HIGH_controller_1468)
+                                                          0.00       5.89 f
+  controller_0/clk_gate_LLR_reg[37]_0/latch/E (TLATNTSCAX2)
+                                                          0.00       5.89 f
+  data arrival time                                                  5.89
+
+  clock clk (rise edge)                                   6.50       6.50
+  clock network delay (ideal)                             0.00       6.50
+  clock uncertainty                                      -0.10       6.40
+  controller_0/clk_gate_LLR_reg[37]_0/latch/CK (TLATNTSCAX2)
+                                                          0.00       6.40 r
+  clock gating setup time                                -0.51       5.89
+  data required time                                                 5.89
+  --------------------------------------------------------------------------
+  data required time                                                 5.89
+  data arrival time                                                 -5.89
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+  Startpoint: rstn (input port clocked by clk)
+  Endpoint: controller_0/clk_gate_LLR_reg[37]_1/latch
+            (gating element for clock clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  bch                tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    3.25       3.25 r
+  rstn (in)                                               0.03       3.28 r
+  U1/Y (BUFX20)                                           0.28       3.55 r
+  controller_0/rstn (controller)                          0.00       3.55 r
+  controller_0/U951/Y (BUFX12)                            0.30       3.85 r
+  controller_0/U55/Y (NAND2X6)                            0.30       4.16 f
+  controller_0/U23/Y (CLKBUFX3)                           0.77       4.92 f
+  controller_0/U5606/Y (CLKBUFX3)                         0.96       5.89 f
+  controller_0/clk_gate_LLR_reg[37]_1/EN (SNPS_CLOCK_GATE_HIGH_controller_1467)
+                                                          0.00       5.89 f
+  controller_0/clk_gate_LLR_reg[37]_1/latch/E (TLATNTSCAX2)
+                                                          0.00       5.89 f
+  data arrival time                                                  5.89
+
+  clock clk (rise edge)                                   6.50       6.50
+  clock network delay (ideal)                             0.00       6.50
+  clock uncertainty                                      -0.10       6.40
+  controller_0/clk_gate_LLR_reg[37]_1/latch/CK (TLATNTSCAX2)
+                                                          0.00       6.40 r
+  clock gating setup time                                -0.51       5.89
+  data required time                                                 5.89
+  --------------------------------------------------------------------------
+  data required time                                                 5.89
+  data arrival time                                                 -5.89
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+  Startpoint: rstn (input port clocked by clk)
+  Endpoint: controller_0/clk_gate_LLR_reg[37]_2/latch
+            (gating element for clock clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  bch                tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    3.25       3.25 r
+  rstn (in)                                               0.03       3.28 r
+  U1/Y (BUFX20)                                           0.28       3.55 r
+  controller_0/rstn (controller)                          0.00       3.55 r
+  controller_0/U951/Y (BUFX12)                            0.30       3.85 r
+  controller_0/U55/Y (NAND2X6)                            0.30       4.16 f
+  controller_0/U23/Y (CLKBUFX3)                           0.77       4.92 f
+  controller_0/U5605/Y (CLKBUFX3)                         0.96       5.89 f
+  controller_0/clk_gate_LLR_reg[37]_2/EN (SNPS_CLOCK_GATE_HIGH_controller_1466)
+                                                          0.00       5.89 f
+  controller_0/clk_gate_LLR_reg[37]_2/latch/E (TLATNTSCAX2)
+                                                          0.00       5.89 f
+  data arrival time                                                  5.89
+
+  clock clk (rise edge)                                   6.50       6.50
+  clock network delay (ideal)                             0.00       6.50
+  clock uncertainty                                      -0.10       6.40
+  controller_0/clk_gate_LLR_reg[37]_2/latch/CK (TLATNTSCAX2)
+                                                          0.00       6.40 r
+  clock gating setup time                                -0.51       5.89
+  data required time                                                 5.89
+  --------------------------------------------------------------------------
+  data required time                                                 5.89
+  data arrival time                                                 -5.89
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

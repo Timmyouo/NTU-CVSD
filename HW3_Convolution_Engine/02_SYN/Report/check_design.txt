@@ -1,0 +1,82 @@
+ 
+****************************************
+check_design summary:
+Version:     U-2022.12
+Date:        Sat Nov 29 13:03:16 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      9
+    Unconnected ports (LINT-28)                                     7
+    Constant outputs (LINT-52)                                      2
+
+Cells                                                              55
+    Cells do not drive (LINT-1)                                    55
+--------------------------------------------------------------------------------
+
+Warning: In design 'core', cell 'C2942' does not drive any nets. (LINT-1)
+Warning: In design 'core', cell 'C2969' does not drive any nets. (LINT-1)
+Warning: In design 'core', cell 'C2985' does not drive any nets. (LINT-1)
+Warning: In design 'core', cell 'C2989' does not drive any nets. (LINT-1)
+Warning: In design 'core', cell 'C3005' does not drive any nets. (LINT-1)
+Warning: In design 'core', cell 'C3013' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', cell 'B_53' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', cell 'B_54' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', cell 'C1358' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', cell 'C1361' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', cell 'C1368' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', cell 'C1369' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', cell 'C1370' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', cell 'C1411' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', cell 'C1416' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', cell 'C1420' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', cell 'C1423' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2660' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2661' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2662' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2663' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2664' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2665' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2666' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2667' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2669' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2670' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2671' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2672' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2673' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2674' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2675' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2676' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2774' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2775' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2776' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2777' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2778' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2779' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2780' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2781' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2783' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2784' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2785' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2786' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2787' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2788' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2789' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2790' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2810' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2811' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2832' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2833' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2838' does not drive any nets. (LINT-1)
+Warning: In design 'ConvCore', cell 'C2866' does not drive any nets. (LINT-1)
+Warning: In design 'Barcode', port 'i_sram_data[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'Barcode', port 'i_sram_data[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'Barcode', port 'i_sram_data[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'Barcode', port 'i_sram_data[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'Barcode', port 'i_sram_data[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'Barcode', port 'i_sram_data[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'Barcode', port 'i_sram_data[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'Barcode', output port 'o_sram_cen' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'ConvCore', output port 'o_cen' is connected directly to 'logic 0'. (LINT-52)
+1

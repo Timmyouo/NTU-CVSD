@@ -1,0 +1,45 @@
+ 
+****************************************
+Report : area
+Design : core
+Version: U-2022.12
+Date   : Sat Nov 29 13:04:20 2025
+****************************************
+
+Library(s) Used:
+
+    slow (File: /home/raid7_2/course/cvsd/CBDK_IC_Contest/CIC/SynopsysDC/db/slow.db)
+    sram_4096x8 (File: /home/raid7_2/userb11/b11043/CVSD/hw3/sram_4096x8/sram_4096x8_slow_syn.db)
+
+Number of ports:                          231
+Number of nets:                          3613
+Number of cells:                         2972
+Number of combinational cells:           2570
+Number of sequential cells:               343
+Number of macros/black boxes:               1
+Number of buf/inv:                        285
+Number of references:                      79
+
+Combinational area:              34591.314753
+Buf/Inv area:                     1167.811186
+Noncombinational area:           11810.508884
+Macro/Black Box area:           131906.968750
+Net Interconnect area:          369321.880707
+
+Total cell area:                178308.792387
+Total area:                     547630.673094
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area                Local cell area
+                                  --------------------  ----------------------------------- 
+Hierarchical cell                 Absolute     Percent  Combi-      Noncombi-   Black-
+                                  Total        Total    national    national    boxes        Design
+--------------------------------  -----------  -------  ----------  ----------  -----------  ---------
+core                              178308.7924    100.0   5270.4269   7553.4298  131906.9688  core
+u_convcore                         33577.9669     18.8  29320.8878   4257.0791       0.0000  ConvCore
+--------------------------------  -----------  -------  ----------  ----------  -----------  ---------
+Total                                                   34591.3148  11810.5089  131906.9688
+
+1

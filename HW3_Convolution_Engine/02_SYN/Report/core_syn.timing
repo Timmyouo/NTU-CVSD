@@ -1,0 +1,266 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 5
+Design : core
+Version: U-2022.12
+Date   : Sat Nov 29 13:04:20 2025
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: weight_r_reg[6]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: u_convcore/out_data_r_reg[3]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  core               tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.50       0.50
+  weight_r_reg[6]/CK (DFFRX1)                             0.00       0.50 r
+  weight_r_reg[6]/Q (DFFRX1)                              0.73       1.23 r
+  u_convcore/i_weight[6] (ConvCore)                       0.00       1.23 r
+  u_convcore/U1635/Y (XNOR2X4)                            0.51       1.74 r
+  u_convcore/U787/Y (NAND2X4)                             0.37       2.11 f
+  u_convcore/U381/Y (OAI22XL)                             0.45       2.56 r
+  u_convcore/U330/CO (ADDFXL)                             0.94       3.49 r
+  u_convcore/U301/S (ADDFX2)                              0.50       3.99 r
+  u_convcore/U284/CO (ADDFXL)                             0.82       4.81 r
+  u_convcore/U258/S (ADDFX2)                              0.52       5.33 f
+  u_convcore/U251/CO (ADDFX2)                             0.37       5.70 f
+  u_convcore/U246/CO (ADDFX4)                             0.49       6.19 f
+  u_convcore/U1135/CO (ADDHX2)                            0.25       6.44 f
+  u_convcore/U171/Y (OR2X2)                               0.24       6.69 f
+  u_convcore/U154/Y (NAND2X2)                             0.11       6.79 r
+  u_convcore/U1131/Y (CLKXOR2X4)                          0.29       7.08 f
+  u_convcore/U115/Y (NOR4X4)                              0.22       7.30 r
+  u_convcore/U1367/Y (NAND2BX4)                           0.35       7.65 r
+  u_convcore/U1291/Y (NAND2X2)                            0.13       7.78 f
+  u_convcore/out_data_r_reg[3]/D (DFFRX2)                 0.00       7.78 f
+  data arrival time                                                  7.78
+
+  clock i_clk (rise edge)                                 7.50       7.50
+  clock network delay (ideal)                             0.50       8.00
+  clock uncertainty                                      -0.10       7.90
+  u_convcore/out_data_r_reg[3]/CK (DFFRX2)                0.00       7.90 r
+  library setup time                                     -0.12       7.78
+  data required time                                                 7.78
+  --------------------------------------------------------------------------
+  data required time                                                 7.78
+  data arrival time                                                 -7.78
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+  Startpoint: weight_r_reg[6]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: u_convcore/out_data_r_reg[0]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  core               tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.50       0.50
+  weight_r_reg[6]/CK (DFFRX1)                             0.00       0.50 r
+  weight_r_reg[6]/Q (DFFRX1)                              0.73       1.23 r
+  u_convcore/i_weight[6] (ConvCore)                       0.00       1.23 r
+  u_convcore/U1635/Y (XNOR2X4)                            0.51       1.74 r
+  u_convcore/U787/Y (NAND2X4)                             0.37       2.11 f
+  u_convcore/U381/Y (OAI22XL)                             0.45       2.56 r
+  u_convcore/U330/CO (ADDFXL)                             0.94       3.49 r
+  u_convcore/U301/S (ADDFX2)                              0.50       3.99 r
+  u_convcore/U284/CO (ADDFXL)                             0.82       4.81 r
+  u_convcore/U258/S (ADDFX2)                              0.52       5.33 f
+  u_convcore/U251/CO (ADDFX2)                             0.37       5.70 f
+  u_convcore/U246/CO (ADDFX4)                             0.49       6.19 f
+  u_convcore/U1135/CO (ADDHX2)                            0.25       6.44 f
+  u_convcore/U171/Y (OR2X2)                               0.24       6.69 f
+  u_convcore/U154/Y (NAND2X2)                             0.11       6.79 r
+  u_convcore/U1131/Y (CLKXOR2X4)                          0.29       7.08 f
+  u_convcore/U115/Y (NOR4X4)                              0.22       7.30 r
+  u_convcore/U1367/Y (NAND2BX4)                           0.35       7.65 r
+  u_convcore/U1297/Y (NAND2X2)                            0.13       7.78 f
+  u_convcore/out_data_r_reg[0]/D (DFFRX2)                 0.00       7.78 f
+  data arrival time                                                  7.78
+
+  clock i_clk (rise edge)                                 7.50       7.50
+  clock network delay (ideal)                             0.50       8.00
+  clock uncertainty                                      -0.10       7.90
+  u_convcore/out_data_r_reg[0]/CK (DFFRX2)                0.00       7.90 r
+  library setup time                                     -0.12       7.78
+  data required time                                                 7.78
+  --------------------------------------------------------------------------
+  data required time                                                 7.78
+  data arrival time                                                 -7.78
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+  Startpoint: weight_r_reg[6]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: u_convcore/out_data_r_reg[5]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  core               tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.50       0.50
+  weight_r_reg[6]/CK (DFFRX1)                             0.00       0.50 r
+  weight_r_reg[6]/Q (DFFRX1)                              0.73       1.23 r
+  u_convcore/i_weight[6] (ConvCore)                       0.00       1.23 r
+  u_convcore/U1635/Y (XNOR2X4)                            0.51       1.74 r
+  u_convcore/U787/Y (NAND2X4)                             0.37       2.11 f
+  u_convcore/U381/Y (OAI22XL)                             0.45       2.56 r
+  u_convcore/U330/CO (ADDFXL)                             0.94       3.49 r
+  u_convcore/U301/S (ADDFX2)                              0.50       3.99 r
+  u_convcore/U284/CO (ADDFXL)                             0.82       4.81 r
+  u_convcore/U258/S (ADDFX2)                              0.52       5.33 f
+  u_convcore/U251/CO (ADDFX2)                             0.37       5.70 f
+  u_convcore/U246/CO (ADDFX4)                             0.49       6.19 f
+  u_convcore/U1135/CO (ADDHX2)                            0.25       6.44 f
+  u_convcore/U171/Y (OR2X2)                               0.24       6.69 f
+  u_convcore/U154/Y (NAND2X2)                             0.11       6.79 r
+  u_convcore/U1131/Y (CLKXOR2X4)                          0.29       7.08 f
+  u_convcore/U115/Y (NOR4X4)                              0.22       7.30 r
+  u_convcore/U1367/Y (NAND2BX4)                           0.35       7.65 r
+  u_convcore/U1294/Y (NAND2X2)                            0.13       7.78 f
+  u_convcore/out_data_r_reg[5]/D (DFFRX2)                 0.00       7.78 f
+  data arrival time                                                  7.78
+
+  clock i_clk (rise edge)                                 7.50       7.50
+  clock network delay (ideal)                             0.50       8.00
+  clock uncertainty                                      -0.10       7.90
+  u_convcore/out_data_r_reg[5]/CK (DFFRX2)                0.00       7.90 r
+  library setup time                                     -0.12       7.78
+  data required time                                                 7.78
+  --------------------------------------------------------------------------
+  data required time                                                 7.78
+  data arrival time                                                 -7.78
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+  Startpoint: weight_r_reg[6]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: u_convcore/out_data_r_reg[4]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  core               tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.50       0.50
+  weight_r_reg[6]/CK (DFFRX1)                             0.00       0.50 r
+  weight_r_reg[6]/Q (DFFRX1)                              0.73       1.23 r
+  u_convcore/i_weight[6] (ConvCore)                       0.00       1.23 r
+  u_convcore/U1635/Y (XNOR2X4)                            0.51       1.74 r
+  u_convcore/U787/Y (NAND2X4)                             0.37       2.11 f
+  u_convcore/U381/Y (OAI22XL)                             0.45       2.56 r
+  u_convcore/U330/CO (ADDFXL)                             0.94       3.49 r
+  u_convcore/U301/S (ADDFX2)                              0.50       3.99 r
+  u_convcore/U284/CO (ADDFXL)                             0.82       4.81 r
+  u_convcore/U258/S (ADDFX2)                              0.52       5.33 f
+  u_convcore/U251/CO (ADDFX2)                             0.37       5.70 f
+  u_convcore/U246/CO (ADDFX4)                             0.49       6.19 f
+  u_convcore/U1135/CO (ADDHX2)                            0.25       6.44 f
+  u_convcore/U171/Y (OR2X2)                               0.24       6.69 f
+  u_convcore/U154/Y (NAND2X2)                             0.11       6.79 r
+  u_convcore/U1131/Y (CLKXOR2X4)                          0.29       7.08 f
+  u_convcore/U115/Y (NOR4X4)                              0.22       7.30 r
+  u_convcore/U1367/Y (NAND2BX4)                           0.35       7.65 r
+  u_convcore/U1292/Y (NAND2X2)                            0.13       7.78 f
+  u_convcore/out_data_r_reg[4]/D (DFFRX2)                 0.00       7.78 f
+  data arrival time                                                  7.78
+
+  clock i_clk (rise edge)                                 7.50       7.50
+  clock network delay (ideal)                             0.50       8.00
+  clock uncertainty                                      -0.10       7.90
+  u_convcore/out_data_r_reg[4]/CK (DFFRX2)                0.00       7.90 r
+  library setup time                                     -0.12       7.78
+  data required time                                                 7.78
+  --------------------------------------------------------------------------
+  data required time                                                 7.78
+  data arrival time                                                 -7.78
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+  Startpoint: weight_r_reg[6]
+              (rising edge-triggered flip-flop clocked by i_clk)
+  Endpoint: u_convcore/out_data_r_reg[2]
+            (rising edge-triggered flip-flop clocked by i_clk)
+  Path Group: i_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  core               tsmc13_wl10           slow
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock i_clk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.50       0.50
+  weight_r_reg[6]/CK (DFFRX1)                             0.00       0.50 r
+  weight_r_reg[6]/Q (DFFRX1)                              0.73       1.23 r
+  u_convcore/i_weight[6] (ConvCore)                       0.00       1.23 r
+  u_convcore/U1635/Y (XNOR2X4)                            0.51       1.74 r
+  u_convcore/U787/Y (NAND2X4)                             0.37       2.11 f
+  u_convcore/U381/Y (OAI22XL)                             0.45       2.56 r
+  u_convcore/U330/CO (ADDFXL)                             0.94       3.49 r
+  u_convcore/U301/S (ADDFX2)                              0.50       3.99 r
+  u_convcore/U284/CO (ADDFXL)                             0.82       4.81 r
+  u_convcore/U258/S (ADDFX2)                              0.52       5.33 f
+  u_convcore/U251/CO (ADDFX2)                             0.37       5.70 f
+  u_convcore/U246/CO (ADDFX4)                             0.49       6.19 f
+  u_convcore/U1135/CO (ADDHX2)                            0.25       6.44 f
+  u_convcore/U171/Y (OR2X2)                               0.24       6.69 f
+  u_convcore/U154/Y (NAND2X2)                             0.11       6.79 r
+  u_convcore/U1131/Y (CLKXOR2X4)                          0.29       7.08 f
+  u_convcore/U115/Y (NOR4X4)                              0.22       7.30 r
+  u_convcore/U1367/Y (NAND2BX4)                           0.35       7.65 r
+  u_convcore/U1296/Y (NAND2X2)                            0.13       7.78 f
+  u_convcore/out_data_r_reg[2]/D (DFFRX2)                 0.00       7.78 f
+  data arrival time                                                  7.78
+
+  clock i_clk (rise edge)                                 7.50       7.50
+  clock network delay (ideal)                             0.50       8.00
+  clock uncertainty                                      -0.10       7.90
+  u_convcore/out_data_r_reg[2]/CK (DFFRX2)                0.00       7.90 r
+  library setup time                                     -0.12       7.78
+  data required time                                                 7.78
+  --------------------------------------------------------------------------
+  data required time                                                 7.78
+  data arrival time                                                 -7.78
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1
