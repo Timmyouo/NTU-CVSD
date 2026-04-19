@@ -44,7 +44,7 @@
 | **HW3** | [Convolution Accelerator](HW3_Convolution_Engine/) | Barcode-detect → 2D convolution engine, four parallel 8-bit output streams, SRAM-backed image/weight memory | Synth at **6 ns** clock, **178 k µm²** total cell area |
 | **HW4** | [IoT Crypto + Sort Datapath](HW4_IoT_Data_Filtering/) | Full DES encrypt/decrypt + 128-bit CRC + sort, mode-selectable | Synth at **3 ns** clock, **51.3 k µm²**, PrimeTime PX power **4.87–6.48 mW** across modes |
 | **HW5** | [Place & Route Sign-off](HW5_APR/) | Full Innovus APR flow on the HW3 convolution core: floorplan → CTS → route → sign-off | **0 DRC**, **0 antenna**, post-route WNS **+0.913 ns** (timing met) |
-| **Final** | [BCH Error-Correcting Decoder](Final_BCH_Decoder/) | Configurable BCH(63,51) / BCH(255,231) decoder with hard-decision + soft (LLR) modes; **complete RTL → GDS** | **6.5 ns** clock, **495 k µm² / 58 k cells**, post-route WNS **+0.913 ns**, **0 DRC / 0 antenna**, **77.8%** core utilization |
+| **Final** | [BCH Error-Correcting Decoder](Final_BCH_Decoder/) | Runtime-configurable BCH(63,51) / BCH(255,239) / BCH(1023,983) decoder with hard-decision + Chase-II soft-decision modes; **complete RTL → GDS** | **6.5 ns** clock, **495 k µm² / 58 k cells**, post-route WNS **+0.913 ns**, **0 DRC / 0 antenna**, **77.8%** core utilization |
 
 ---
 
